@@ -59,29 +59,29 @@ class Board(Frame):
 
         while self.i < self.number_of_buttons:
             for j in range(self.number_of_buttons):
-                buttons = Button(top, text="*",image=self.photo,padx=10,pady=10,command=lambda var=self.var, lan=j:self.change_text_buttons(lan,var))
+                buttons = Button(top, text="*",image=self.photo,padx=10,pady=10,command=lambda var=self.var, lan=j:self.change_text_buttons(lan,var,top))
                 buttons.grid(row=self.i,column=j,padx=10,pady=10)
                 self.list_buttons.append(buttons)
                 self.var+=1
                 if(j==self.number_of_buttons-1):
                     self.i+=1
 
-    def change_text_buttons(self,tekst,var):
+    def change_text_buttons(self,tekst,var,top):
         self.texty.set(tekst)
 
         for i in range(len(self.list_buttons)):
          if i==var:
             self.list_buttons[i].config(image=self.photo_smile)
             self.score+=1
-            Label_score = Label(self.top,text="Your score: " + str(self.score))
+            Label_score = Label(top,text="Your score: " + str(self.score))
             Label_score.grid(row=14, column=0,columnspan=2)
             for j in range(len(self.list_bomb)):
                 if i==self.list_bomb[j]:
                     self.list_buttons[i].config(image=self.photo_bomba)
-                    Label_score = Label(self.top,text="Lost, Sry little one")
+                    Label_score = Label(top,text="Lost, Sry little one")
                     messagebox.showinfo("Loser. Sry litlle one!", "Lost!")
                     Label_score.grid(row=14, column=0,columnspan=2)
-                    button_reset = Button(self.top,text="Reset", command=self.generate_buttons)
+                    button_reset = Button(top,text="Reset", command=self.generate_buttons)
                     button_reset.grid(row=14, column=4,pady=10)
 
     def menu(self):

@@ -21,6 +21,7 @@ class Board(Frame):
         self.list_buttons = []
         self.list_bomb = []
 
+
         #root setting window
         self.master.geometry("400x400")
         self.master.title("Saper in Python by Mycek")
@@ -29,6 +30,7 @@ class Board(Frame):
     def open_game(self):
         top = Toplevel()
         lbl = Label(top)
+        self.__init__(self.master,6,3,3,6,1,0,0,0)
         self.generate_buttons(top)
 
     def options(self):
@@ -81,7 +83,7 @@ class Board(Frame):
                     Label_score = Label(top,text="Lost, Sry little one")
                     messagebox.showinfo("Loser. Sry litlle one!", "Lost!")
                     Label_score.grid(row=14, column=0,columnspan=2)
-                    button_reset = Button(top,text="Reset", command=self.generate_buttons)
+                    button_reset = Button(top,text="Exit", command=top.destroy)
                     button_reset.grid(row=14, column=4,pady=10)
 
     def menu(self):

@@ -25,7 +25,6 @@ class Board(Frame):
         #root setting window
         self.master.geometry("400x400")
         self.master.title("Saper in Python by Mycek")
-        self.master.iconbitmap('D:\Pulpit\Python/bomb.ico')
     
     def open_game(self):
         top = Toplevel()
@@ -35,7 +34,7 @@ class Board(Frame):
 
     def options(self):
         top = Toplevel()
-        lbl = Label(top,text="Our options").pack()
+        lbl = Label(top,text="In work ;)").pack()
         
 
     def generate_buttons(self,top):
